@@ -1,0 +1,110 @@
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import Logo from "../Logo/Logo";
+import PermPhoneMsgIcon from "@mui/icons-material/PermPhoneMsg";
+import { Button, useMediaQuery } from "@mui/material";
+import MenuLists from "../MenuList/MenuLists";
+import PropTypes from "prop-types";
+import CssBaseline from "@mui/material/CssBaseline";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import LoginIcon from '@mui/icons-material/Login';
+
+// Elevation effect on scroll
+function ElevationScroll(props) {
+  const { children, window } = props;
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+    target: window ? window() : undefined,
+  });
+
+  return React.cloneElement(children, {
+    elevation: trigger ? 4 : 0, // Apply shadow when scrolled
+  });
+}
+
+ElevationScroll.propTypes = {
+  children: PropTypes.element.isRequired,
+  window: PropTypes.func,
+};
+
+const Header = (props) => {
+  const isMobile = useMediaQuery("(max-width:900px)");
+  const miniTab = useMediaQuery("(max-width:1032px)");
+
+  return (
+    <Box component="nav" sx={{ flexGrow: 1 }}>
+      <CssBaseline />
+      <ElevationScroll {...props}>
+        <AppBar
+          position="fixed"
+          sx={{
+            py: 0.7,
+            transition: "box-shadow 0.3s ease-in-out", // smooth elevation transition
+            backgroundColor: "primary.main",
+          }}
+        >
+          <Toolbar
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Logo useIn="header" />
+            {!isMobile && (
+              <>
+                <MenuLists />
+                <Box
+                  sx={{
+                    width: "25%",
+                    // border: "2px solid red",
+                    display: "flex",
+                    justifyContent: "end",
+                    alignItems: "center",
+                  }}
+                >
+                  <Button
+                  startIcon={<LoginIcon/>}
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "primary.light",
+                      mr: 2,
+                      color: "#fff",
+                    }}
+                  >
+                    Login
+                  </Button>
+                  <Button
+                  endIcon={<HowToRegIcon/>}
+                    variant="contained"
+                    sx={{ backgroundColor: "primary.dark", color: "#fff" }}
+                  >
+                    Register
+                  </Button>
+                </Box>
+              </>
+            )}
+            {isMobile && (
+              <IconButton
+                size="large"
+                edge="start"
+                aria-label="menu"
+                sx={{ ml: "auto" }}
+              >
+                <MenuIcon sx={{ fontSize: 40, color: "text.primary" }} />
+              </IconButton>
+            )}
+          </Toolbar>
+        </AppBar>
+      </ElevationScroll>
+    </Box>
+  );
+};
+
+export default Header;
