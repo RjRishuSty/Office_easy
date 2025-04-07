@@ -16,11 +16,9 @@ const Footer = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        // position:'rel',
         bottom: 0,
         left: 0,
         backgroundColor: "primary.light",
-        // border: "2px solid red",
       }}
     >
       <Container maxWidth="false" sx={{ maxWidth: "90%" }}>
@@ -39,7 +37,7 @@ const Footer = () => {
                   color: "text.secondary",
                   fontWeight: 600,
                   fontSize: "1rem",
-                  margin:'0px 0px 0px 20px',
+                  margin: "0px 0px 0px 20px",
                   textTransform: "uppercase",
                   textAlign: "center",
                   borderBottom: "2px solid gray",
@@ -51,6 +49,7 @@ const Footer = () => {
                 {item.id === "address" ? (
                   item.types.map(({ name }) => (
                     <Typography
+                    key={name}
                       gutterBottom
                       sx={{
                         color: "#fff",
@@ -72,9 +71,24 @@ const Footer = () => {
                 ) : item.id === "link" ? (
                   <MenuLists useIn="footer" />
                 ) : item.id === "services" ? (
-                  <MenuLists useIn="footer" item={pages.find((p) => p.id === "properties")?.section} />
+                  <MenuLists
+                    useIn="footer"
+                    item={pages.find((p) => p.id === "properties")?.section}
+                  />
+                ) : item.id === "about" ? (
+                  <Typography
+                    sx={{
+                      color: "#fff",
+                      textAlign: "start",
+                      pl: 3,
+                      fontSize: "1rem",
+                      opacity: 0.9,
+                    }}
+                  >
+                    {item.content}
+                  </Typography>
                 ) : (
-                  item.id === 'about'?<Typography sx={{color:'#fff',textAlign:'start',pl:3,fontSize:'1rem',opacity:0.9}}>{item.content}</Typography>:""
+                  ""
                 )}
               </Box>
             </Grid>

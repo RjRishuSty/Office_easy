@@ -10,3 +10,32 @@ body {
   background-color: #f9f7fd !important;
   font-family: "Kumbh Sans", sans-serif;
 }
+
+/* Swiper navigation icon style  */
+
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  content: "next" !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  color: #ffa229 !important;
+  border-radius: 100% !important;
+  padding: 10px 15px !important;
+  font-size: 15px !important;
+}
+
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  content: "prev" !important;
+  color: #ffa229 !important;
+  border-radius: 100% !important;
+  padding: 10px 15px !important;
+  font-size: 15px !important;
+}
+.swiper-pagination-fraction {
+  color: #ffa229 !important;
+}

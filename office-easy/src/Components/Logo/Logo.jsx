@@ -1,9 +1,9 @@
-import { Box, Typography, useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import React from "react";
 import logo from "../../assets/logo.png";
 import { NavLink } from "react-router-dom";
 
-const Logo = ({ useIn }) => {
+const Logo = () => {
   const isMobile = useMediaQuery("(max-width:900px)");
   return (
     <Box

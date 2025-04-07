@@ -5,7 +5,6 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Logo from "../Logo/Logo";
-import PermPhoneMsgIcon from "@mui/icons-material/PermPhoneMsg";
 import { Button, useMediaQuery } from "@mui/material";
 import MenuLists from "../MenuList/MenuLists";
 import PropTypes from "prop-types";
@@ -35,7 +34,6 @@ ElevationScroll.propTypes = {
 
 const Header = (props) => {
   const isMobile = useMediaQuery("(max-width:900px)");
-  const miniTab = useMediaQuery("(max-width:1032px)");
 
   return (
     <Box component="nav" sx={{ flexGrow: 1 }}>
@@ -45,7 +43,7 @@ const Header = (props) => {
           position="fixed"
           sx={{
             py: 0.7,
-            transition: "box-shadow 0.3s ease-in-out", // smooth elevation transition
+            transition: "box-shadow 0.3s ease-in-out", 
             backgroundColor: "primary.main",
           }}
         >

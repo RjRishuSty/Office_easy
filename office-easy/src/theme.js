@@ -9,9 +9,9 @@ export const theme = createTheme({
     },
     text: {
       main: "#000",
-      primary: "#0d1321",
+      primary: "#2b5aac",
       secondary: "#ffa229",
-      light: "#0000",
+      light: "#808080	",
     },
   },
   typography: {
@@ -21,10 +21,10 @@ export const theme = createTheme({
     MuiInputLabel: {
       styleOverrides: {
         root: {
-          color: "#000", // default label color
+          color: "#ffa229", // default label color
 
           "&.Mui-focused": {
-            color: "#000", // label color on focus
+            color: "#ffa229", // label color on focus
           },
         },
       },
@@ -32,11 +32,11 @@ export const theme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         notchedOutline: {
-          borderColor: "#000", // default border color
+          borderColor: "#ffa229", // default border color
         },
         root: {
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#000", // border color on focus
+            borderColor: "#ffa229", // border color on focus
           },
         },
       },
