@@ -18,23 +18,29 @@ export const footerData = [
     name: "Our Address",
     types: [
       {
-        id: "1",
-        name: "Location",
-        content:
-          "Registered Office: C-30, Lower Ground Floor, Sector – 2, Noida, U.P. – 201301",
-      },
-      {
-        id: "2",
-        name: "phone",
+        id: "phone",
+        name: "Registered Helplines",
         content: [
           { id: "1", item: "+91-9311476917" },
           { id: "2", item: "+91-8595789536" },
         ],
       },
       {
-        id: "3",
-        name: "email",
-        content: "newoffice@officeeasy.in",
+        id: "email",
+        name: "Email",
+        content: [{id:'1',item:"newoffice@officeeasy.in"}]
+      },
+      {
+        id: "location",
+        name: "Registered Office",
+        content:
+          "Registered Office: C-30, Lower Ground Floor, Sector – 2, Noida, U.P. – 201301",
+      },
+      {
+        id: "location",
+        name: "Corporate Office",
+        content:
+          "Tower – B, Office No. 1135, Grandslam Ithum, Sector – 62, Noida, U.P. 201301",
       },
     ],
   },

@@ -1,5 +1,4 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -22,10 +21,10 @@ const SelectInputs = ({ label, options }) => {
         MenuProps={{
           PaperProps: {
             sx: {
-              backgroundColor: "#ffa229", // Menu background color
-              color: "#fff",               // Text color (optional)
+              backgroundColor: "#ffa229", 
+              color: "#fff",              
               "& .MuiMenuItem-root:hover": {
-                backgroundColor: "#ffb347", // Hover effect (optional)
+                backgroundColor: "#ffb347", 
               },
             },
           },

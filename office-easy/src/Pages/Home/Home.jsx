@@ -5,7 +5,7 @@ import SearchSection from '../../Components/SearchSection/SearchSection'
 
 const Home = () => {
   return (
-    <Box sx={{border:'2px solid red',mt:10,}}>
+    <Box sx={{mt:10,}}>
       <HeroSection/>
       <SearchSection/>
     </Box>

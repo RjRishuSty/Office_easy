@@ -14,7 +14,7 @@ const SearchSection = () => {
       element: (
         <SelectInputs
           label="Property Types"
-          options={["Office", "Warehouse", "Factory"]}
+          options={["Furnished office space", "Industrial ware houre", "Industrial factory"]}
         />
       ),
     },
@@ -25,7 +25,7 @@ const SearchSection = () => {
       element: (
         <SelectInputs
           label="Property Locations"
-          options={["Noida", "Greater Noida"]}
+          options={["Noida","Gurgaon", " Noida"]}
         />
       ),
     },

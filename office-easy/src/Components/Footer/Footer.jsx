@@ -27,7 +27,7 @@ const Footer = () => {
             <Grid
               key={item.id}
               size={{ xs: 12, sm: 6, md: 6, lg: 3 }}
-              sx={{ border: "2px solid red", p: 1 }}
+              sx={{  p: 1 }}
             >
               <Typography
                 component="span"
@@ -47,26 +47,59 @@ const Footer = () => {
               </Typography>
               <Box sx={{ mt: 2.5 }}>
                 {item.id === "address" ? (
-                  item.types.map(({ name }) => (
-                    <Typography
-                    key={name}
-                      gutterBottom
-                      sx={{
-                        color: "#fff",
-                        display: "flex",
-                        justifyContent: "start",
-                        alignItems: "center",
-                      }}
-                    >
-                      <KeyboardDoubleArrowRightIcon
+                  item.types.map((type) => (
+                    <Box key={type.id} sx={{ mb: 1.5, pl: 2 }}>
+                      <Typography
+                        variant="subtitle2"
                         sx={{
-                          fontSize: "25",
-                          mr: 0.6,
                           color: "text.secondary",
+                          fontWeight: 600,
+                          mb: 0.5,
                         }}
-                      />
-                      {name}
-                    </Typography>
+                      >
+                        {type.name}
+                      </Typography>
+                      {Array.isArray(type.content) ? (
+                        type.content.map(({ id, item }) => (
+                          <Typography
+                            key={id}
+                            gutterBottom
+                            sx={{
+                              color: "#fff",
+                              display: "flex",
+                              alignItems: "center",
+                            }}
+                          >
+                            <KeyboardDoubleArrowRightIcon
+                              sx={{
+                                fontSize: 20,
+                                mr: 0.6,
+                                color: "text.secondary",
+                              }}
+                            />
+                            {item}
+                          </Typography>
+                        ))
+                      ) : (
+                        <Typography
+                          gutterBottom
+                          sx={{
+                            color: "#fff",
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <KeyboardDoubleArrowRightIcon
+                            sx={{
+                              fontSize: 20,
+                              mr: 0.6,
+                              color: "text.secondary",
+                            }}
+                          />
+                          {type.content}
+                        </Typography>
+                      )}
+                    </Box>
                   ))
                 ) : item.id === "link" ? (
                   <MenuLists useIn="footer" />
