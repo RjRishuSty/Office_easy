@@ -6,6 +6,7 @@
     border: 1px solid #ffa229 !important;
     color:#2b5aac !important;
     background-color: transparent !important;
+    margin-top: -25px !important;
 }
 .textarea::placeholder{
     color: #ffa229 !important;

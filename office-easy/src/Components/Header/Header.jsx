@@ -10,8 +10,10 @@ import MenuLists from "../MenuList/MenuLists";
 import PropTypes from "prop-types";
 import CssBaseline from "@mui/material/CssBaseline";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
-import HowToRegIcon from '@mui/icons-material/HowToReg';
-import LoginIcon from '@mui/icons-material/Login';
+import HowToRegIcon from "@mui/icons-material/HowToReg";
+import LoginIcon from "@mui/icons-material/Login";
+import SideBar from "../SideBar/SideBar";
+import { useState, useCallback } from "react";
 
 // Elevation effect on scroll
 function ElevationScroll(props) {
@@ -33,7 +35,12 @@ ElevationScroll.propTypes = {
 };
 
 const Header = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width:900px)");
+
+  const handleToggle = useCallback(() => {
+    setIsOpen((prev) => !prev);
+  }, []);
 
   return (
     <Box component="nav" sx={{ flexGrow: 1 }}>
@@ -43,7 +50,7 @@ const Header = (props) => {
           position="fixed"
           sx={{
             py: 0.7,
-            transition: "box-shadow 0.3s ease-in-out", 
+            transition: "box-shadow 0.3s ease-in-out",
             backgroundColor: "primary.main",
           }}
         >
@@ -68,7 +75,7 @@ const Header = (props) => {
                   }}
                 >
                   <Button
-                  startIcon={<LoginIcon/>}
+                    startIcon={<LoginIcon />}
                     variant="contained"
                     sx={{
                       backgroundColor: "primary.light",
@@ -79,7 +86,7 @@ const Header = (props) => {
                     Login
                   </Button>
                   <Button
-                  endIcon={<HowToRegIcon/>}
+                    endIcon={<HowToRegIcon />}
                     variant="contained"
                     sx={{ backgroundColor: "primary.dark", color: "#fff" }}
                   >
@@ -89,14 +96,18 @@ const Header = (props) => {
               </>
             )}
             {isMobile && (
-              <IconButton
-                size="large"
-                edge="start"
-                aria-label="menu"
-                sx={{ ml: "auto" }}
-              >
-                <MenuIcon sx={{ fontSize: 40, color: "text.primary" }} />
-              </IconButton>
+              <>
+                <IconButton
+                  size="large"
+                  edge="start"
+                  aria-label="menu"
+                  sx={{ ml: "auto" }}
+                  onClick={handleToggle}
+                >
+                  <MenuIcon sx={{ fontSize: 40, color: "text.primary" }} />
+                </IconButton>
+                {isOpen ? <SideBar setIsOpen={setIsOpen} /> : null}
+              </>
             )}
           </Toolbar>
         </AppBar>

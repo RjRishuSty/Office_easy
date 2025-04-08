@@ -31,7 +31,7 @@ export const pages = [
     name: "Career",
     path: "/career",
   },
-  {
+  { 
     id: "contact",
     name: "Contact Us",
     path: "/contact",

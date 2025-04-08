@@ -5,7 +5,8 @@ import { NavLink } from "react-router-dom";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { pages } from "../../pages";
 
-const MenuLists = ({ useIn, item }) => {
+const MenuLists = ({ useIn, item, setIsOpen }) => {
+  const isMobile = useMediaQuery("(max-width:900px)");
   const miniTab = useMediaQuery("(max-width:1189px)");
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -28,11 +29,14 @@ const MenuLists = ({ useIn, item }) => {
   return (
     <Box
       sx={{
-        width: "auto",
+        // border:'2px solid red',
+        width: useIn === "footer" || useIn === "sidebar" ? "100%" : "auto",
         display: "flex",
         justifyContent: "start",
-        alignItems: useIn === "footer" ? "start" : "center",
-        flexDirection: useIn === "footer" ? "column" : "row",
+        alignItems:
+          useIn === "footer" || useIn === "sidebar" ? "start" : "center",
+        flexDirection:
+          useIn === "footer" || useIn === "sidebar" ? "column" : "row",
       }}
     >
       {filteredPages.map((item) => (
@@ -90,7 +94,10 @@ const MenuLists = ({ useIn, item }) => {
                 {item.section?.map((subItem) => (
                   <MenuItem
                     key={subItem.id}
-                    onClick={handleClose}
+                    onClick={() => {
+                      handleClose();
+                      if (setIsOpen) setIsOpen(false); 
+                    }}
                     component={NavLink}
                     to={subItem.path}
                   >
@@ -104,6 +111,9 @@ const MenuLists = ({ useIn, item }) => {
               to={item.path}
               aria-label={item.name}
               style={{ textDecoration: "none" }}
+              onClick={() => {
+                if (setIsOpen) setIsOpen(false); 
+              }}
             >
               {({ isActive }) => (
                 <Box
@@ -113,16 +123,18 @@ const MenuLists = ({ useIn, item }) => {
                     alignItems: "center",
                   }}
                 >
-                  {isActive && (
-                    useIn ==='footer'?"":
-                    <Box
-                      className={Styles.circle}
-                      sx={{
-                        backgroundColor: "text.secondary",
-                        mx: miniTab ? 0.5 : 1,
-                      }}
-                    ></Box>
-                  )}
+                  {isActive &&
+                    (useIn === "footer" ? (
+                      ""
+                    ) : (
+                      <Box
+                        className={Styles.circle}
+                        sx={{
+                          backgroundColor: "text.secondary",
+                          mx: miniTab ? 0.5 : 1,
+                        }}
+                      ></Box>
+                    ))}
                   <Typography
                     variant="button"
                     sx={{

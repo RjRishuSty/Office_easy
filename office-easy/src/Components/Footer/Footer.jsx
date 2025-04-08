@@ -47,8 +47,8 @@ const Footer = () => {
               </Typography>
               <Box sx={{ mt: 2.5 }}>
                 {item.id === "address" ? (
-                  item.types.map((type) => (
-                    <Box key={type.id} sx={{ mb: 1.5, pl: 2 }}>
+                  item.types.map((type,index) => (
+                    <Box key={index} sx={{ mb: 1.5, pl: 2 }}>
                       <Typography
                         variant="subtitle2"
                         sx={{
@@ -60,9 +60,9 @@ const Footer = () => {
                         {type.name}
                       </Typography>
                       {Array.isArray(type.content) ? (
-                        type.content.map(({ id, item }) => (
+                        type.content.map((item,index) => (
                           <Typography
-                            key={id}
+                            key={index}
                             gutterBottom
                             sx={{
                               color: "#fff",
@@ -77,7 +77,7 @@ const Footer = () => {
                                 color: "text.secondary",
                               }}
                             />
-                            {item}
+                            {item.item}
                           </Typography>
                         ))
                       ) : (
