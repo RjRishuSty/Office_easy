@@ -78,7 +78,7 @@ const NavigationSection = () => {
         >
           <Typography
             sx={{
-              fontSize: "2rem",
+              fontSize: "1.5rem",
               textTransform: "uppercase",
               fontWeight: 600,
             }}

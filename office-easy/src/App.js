@@ -5,33 +5,48 @@ import Home from "./Pages/Home/Home";
 import About from "./Pages/About/About";
 import Contact from "./Pages/Contact/Contact";
 import Career from "./Pages/Career/Career";
-
+import Properties from "./Pages/Properties/Properties";
+import IndustrialProperty from "./Components/PropertiesTypes/IndustrialProperty";
+import CommercialProperty from "./Components/PropertiesTypes/CommercialProperty";
 
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout/>,
+      element: <Layout />,
       children: [
         {
           path: "/",
-          element: <Home/>,
+          element: <Home />,
         },
         {
           path: "/about",
-          element: <About/>,
+          element: <About />,
         },
         {
           path: "/contact",
-          element: <Contact/>,
+          element: <Contact />,
         },
         {
           path: "/career",
-          element: <Career/>,
+          element: <Career />,
+        },
+        {
+          path: "/properties",
+          element: <Properties />,
+          children: [
+            {
+              path: "industrial",
+              element: <IndustrialProperty />,
+            },
+            {
+              path: "commercial",
+              element: <CommercialProperty />,
+            },
+          ],
         },
       ],
     },
-    
   ]);
   return <RouterProvider router={router} />;
 };
