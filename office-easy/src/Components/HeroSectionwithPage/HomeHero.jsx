@@ -7,6 +7,7 @@ import office2 from "../../assets/office2.jpg";
 import office3 from "../../assets/office3.jpg";
 import office4 from "../../assets/office4.jpg";
 import office5 from "../../assets/office5.jpg";
+import { Link } from "react-router-dom";
 
 const HomeHero = () => {
   const sliderData = [
@@ -19,7 +20,7 @@ const HomeHero = () => {
   ];
   return (
     <>
-      <Container sx={{py:10 }}>
+      <Container sx={{ py: 10 }}>
         <Grid container rowSpacing={5} columnSpacing={5}>
           <Grid
             size={{ xs: 12, sm: 12, md: 6 }}
@@ -70,7 +71,12 @@ const HomeHero = () => {
               , we provide office spaces —
             </Typography>
             <Typography
-              sx={{ fontSize: "1rem", color: "text.light", lineHeight: 1.5,paddingRight:5 }}
+              sx={{
+                fontSize: "1rem",
+                color: "text.light",
+                lineHeight: 1.5,
+                paddingRight: 5,
+              }}
             >
               We build lasting partnerships. Whether you're looking for modern
               offices, warehouses, factories, or tech labs, we offer affordable,
@@ -78,25 +84,27 @@ const HomeHero = () => {
               personalized support, we make your commercial journey seamless and
               stress-free.
             </Typography>
-            <Button
-              size="large"
-              variant="contained"
-              sx={{
-                mt: 3,
-                backgroundColor: "text.secondary",
-                color: "#fff",
-                textTransform: "capitalize",
-              }}
-              endIcon={<HomeWorkIcon sx={{ color: "text.main" }} />}
-            >
-              Get Your Space Now
-            </Button>
+            <Link to="contact">
+              <Button
+                size="large"
+                variant="contained"
+                sx={{
+                  mt: 3,
+                  backgroundColor: "text.secondary",
+                  color: "#fff",
+                  textTransform: "capitalize",
+                }}
+                endIcon={<HomeWorkIcon sx={{ color: "#fff" }} />}
+              >
+                Get Your Space Now
+              </Button>
+            </Link>
           </Grid>
           <Grid
             size={{ xs: 12, sm: 12, md: 6 }}
             sx={{
               borderRadius: 5,
-              overflow:'hidden',
+              overflow: "hidden",
               order: { xs: 1, sm: 1, md: 2 },
             }}
           >

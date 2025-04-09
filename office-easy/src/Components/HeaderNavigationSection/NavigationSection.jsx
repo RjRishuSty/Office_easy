@@ -1,9 +1,10 @@
-import { Container, Stack, Typography } from "@mui/material";
+import { Container, Stack, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import CubeBackground from "../Background/CubeBackground/CubeBackground";
 
 const NavigationSection = () => {
+  const xSmall = useMediaQuery("(max-width:530px)");
   const location = useLocation();
   const path = location.pathname;
 
@@ -17,8 +18,8 @@ const NavigationSection = () => {
         return "About";
       case "contact":
         return "Contact";
-      case "services":
-        return "Services";
+      case "properties":
+        return xSmall?"proper..":'Properties';
       case "faq":
         return "FAQ";
       default:
@@ -78,7 +79,7 @@ const NavigationSection = () => {
         >
           <Typography
             sx={{
-              fontSize: "1.5rem",
+              fontSize: xSmall?"0.9rem":"1.5rem",
               textTransform: "uppercase",
               fontWeight: 600,
             }}

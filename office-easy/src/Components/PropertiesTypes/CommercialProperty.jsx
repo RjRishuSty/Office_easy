@@ -11,7 +11,7 @@ const CommercialProperty = () => {
     <Stack
       sx={{ py: 10, backgroundColor: "primary.main" }}
     >
-      <Container sx={{ border: "2px solid red" }}>
+      <Container>
         <Grid container rowSpacing={3} columnSpacing={3}>
           {commercialSpace.map((item) => (
             <Grid size={{ xs: 12, sm: 6, md: 6,xl:4 }} >

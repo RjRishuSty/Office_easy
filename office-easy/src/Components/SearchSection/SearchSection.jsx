@@ -43,9 +43,9 @@ const SearchSection = () => {
             color: "#fff",
             fontSize: "1rem",
             textTransform:'capitalize',
-            padding: { sm: "8px 100px", xs: "6px 50px", md: "10px 30px" },
+            padding: { sm: "8px 100px", xs: "10px 50px", md: "10px 30px" },
           }}
-          endIcon={<LocationSearchingIcon fontSize="large" sx={{color:'text.main'}}/>}
+          endIcon={<LocationSearchingIcon fontSize="large" sx={{color:'#fff'}}/>}
         >
           Search
         </Button>

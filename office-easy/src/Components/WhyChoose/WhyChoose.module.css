@@ -1,0 +1,26 @@
+.whySection {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Important to keep pseudo-element inside */
+}
+
+.whySection::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('../../assets/why.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(50%);
+    z-index: 0;
+}
+
+.whySection > * {
+    position: relative;
+    z-index: 1; /* Puts content above the ::before layer */
+}

@@ -7,7 +7,6 @@ import ContactHero from "../HeroSectionwithPage/ContactHero";
 const HeroSection = () => {
   const location = useLocation();
   const path = location.pathname;
-  console.log("herosection",path)
 
   let heroContent;
 
@@ -21,7 +20,7 @@ const HeroSection = () => {
       break;
 
     case "/contact":
-      heroContent = <ContactHero/>;
+      heroContent = <ContactHero />;
       break;
 
     default:
