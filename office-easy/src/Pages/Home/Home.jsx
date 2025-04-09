@@ -5,7 +5,7 @@ import SearchSection from "../../Components/SearchSection/SearchSection";
 import WhyChoose from "../../Components/WhyChoose/WhyChoose";
 import WhatWeDo from "../../Components/WhatWeDo/WhatWeDo";
 import Testimonial from "../../Components/Testimonial/Testimonial";
-import AmenitiesSection from "../../Components/AmenitiesSection/AmenitiesSection";
+// import AmenitiesSection from "../../Components/AmenitiesSection/AmenitiesSection";
 
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
       <SearchSection />
       <WhyChoose />
       <WhatWeDo />
-      <AmenitiesSection />
+      {/* <AmenitiesSection /> */}
       <Testimonial />
     </Box>
   );
