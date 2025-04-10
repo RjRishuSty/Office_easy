@@ -29,6 +29,8 @@ const MenuLists = ({ useIn, item, setIsOpen }) => {
       {filteredPages.map((item) =>
         item.section && useIn !== "footer" ? (
           <DropDownMenu item={item} useIn={useIn} setIsOpen={setIsOpen} />
+        ) : item.id === "properties" ? (
+          ""
         ) : (
           <NavLink
             to={item.path}
@@ -69,9 +71,9 @@ const MenuLists = ({ useIn, item, setIsOpen }) => {
                     mr: 2.5,
                     // border: "2px solid red",
                     pl: isMobile ? 0.5 : 0,
-                    mb:useIn === "footer" || useIn === "sidebar" ?0.7:0,
+                    mb: useIn === "footer" || useIn === "sidebar" ? 0.7 : 0,
                     fontWeight: 500,
-                    fontSize: miniLatop ? 14 : 17,
+                    fontSize: isMobile ? 18 : miniLatop ? 14 : 17,
                     cursor: "pointer",
                     textTransform: "capitalize",
                     "&:hover": {

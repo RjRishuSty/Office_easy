@@ -16,7 +16,7 @@ import {
     const [dropdownOpenId, setDropdownOpenId] = useState(null);
     const [expandedSubItemId, setExpandedSubItemId] = useState(null);
   
-    const miniLaptop = useMediaQuery("(max-width:1276px)");
+    const miniLatop = useMediaQuery("(max-width:1276px)");
     const isMobile = useMediaQuery("(max-width:900px)");
     const navigate = useNavigate();
   
@@ -72,7 +72,7 @@ import {
                 isMobile || useIn === "footer" || useIn === "sidebar"
                   ? 0.7
                   : 0,
-              gap: 0.5,
+              // gap: 0.5,
               color:
                 useIn === "footer"
                   ? "#fff"
@@ -80,7 +80,8 @@ import {
                   ? "text.secondary"
                   : "text.primary",
               fontWeight: 500,
-              fontSize: miniLaptop ? 14 : 17,
+              fontSize:  isMobile ? 18 : miniLatop ? 14 : 17,
+             
               cursor: "pointer",
               textTransform: "capitalize",
               "&:hover": {
