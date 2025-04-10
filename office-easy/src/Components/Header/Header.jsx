@@ -25,7 +25,7 @@ function ElevationScroll(props) {
   });
 
   return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0, // Apply shadow when scrolled
+    elevation: trigger ? 4 : 0, 
   });
 }
 
@@ -37,6 +37,7 @@ ElevationScroll.propTypes = {
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width:900px)");
+  const miniLatop = useMediaQuery("(max-width:1276px)");
 
   const handleToggle = useCallback(() => {
     setIsOpen((prev) => !prev);
@@ -67,8 +68,7 @@ const Header = (props) => {
                 <MenuLists />
                 <Box
                   sx={{
-                    width: "25%",
-                    // border: "2px solid red",
+                    width: "auto",
                     display: "flex",
                     justifyContent: "end",
                     alignItems: "center",
@@ -77,6 +77,7 @@ const Header = (props) => {
                   <Button
                     startIcon={<LoginIcon />}
                     variant="contained"
+                    size={miniLatop?"small":'medium'}
                     sx={{
                       backgroundColor: "primary.light",
                       mr: 2,
@@ -88,6 +89,7 @@ const Header = (props) => {
                   <Button
                     endIcon={<HowToRegIcon />}
                     variant="contained"
+                    size={miniLatop?"small":'medium'}
                     sx={{ backgroundColor: "primary.dark", color: "#fff" }}
                   >
                     Register

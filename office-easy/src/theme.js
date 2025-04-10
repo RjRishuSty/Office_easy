@@ -21,10 +21,10 @@ export const theme = createTheme({
     MuiInputLabel: {
       styleOverrides: {
         root: {
-          color: "#ffa229", // default label color
+          color: "#ffa229", 
 
           "&.Mui-focused": {
-            color: "#ffa229", // label color on focus
+            color: "#ffa229", 
           },
         },
       },
@@ -32,11 +32,11 @@ export const theme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         notchedOutline: {
-          borderColor: "#ffa229", // default border color
+          borderColor: "#ffa229", 
         },
         root: {
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#ffa229", // border color on focus
+            borderColor: "#ffa229",
           },
         },
       },

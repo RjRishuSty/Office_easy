@@ -9,7 +9,6 @@ const Logo = () => {
     <Box
       component="div"
       sx={{
-        // border:'2px solid blue',
         width: "15%",
         display: "flex",
         justifyContent: "start",

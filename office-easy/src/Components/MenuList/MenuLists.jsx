@@ -1,35 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import Styles from "./MenuList.module.css";
-import { Box, Menu, MenuItem, Typography, useMediaQuery } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { NavLink } from "react-router-dom";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { pages } from "../../pages";
+import DropDownMenu from "./DropDownMenu";
 
 const MenuLists = ({ useIn, item, setIsOpen }) => {
+  const miniLatop = useMediaQuery("(max-width:1276px)");
+  const smallTablet = useMediaQuery("(max-width:1033px)");
   const isMobile = useMediaQuery("(max-width:900px)");
-  const miniTab = useMediaQuery("(max-width:1189px)");
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleToggle = (event) => {
-    if (anchorEl) {
-      setAnchorEl(null);
-    } else {
-      setAnchorEl(event.currentTarget);
-    }
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   const filteredPages = Array.isArray(item)
     ? item
-    : pages.filter((item) => !(useIn === "footer" && item.id === "properties"));
+    : pages.filter((p) => !(useIn === "footer" && p.id === "propertyLease"));
 
   return (
     <Box
       sx={{
-        // border:'2px solid red',
         width: useIn === "footer" || useIn === "sidebar" ? "100%" : "auto",
         display: "flex",
         justifyContent: "start",
@@ -39,128 +26,74 @@ const MenuLists = ({ useIn, item, setIsOpen }) => {
           useIn === "footer" || useIn === "sidebar" ? "column" : "row",
       }}
     >
-      {filteredPages.map((item) => (
-        <MenuItem
-          key={item.id}
-          sx={{ borderRadius: 2, mx: 0.5 }}
-          onClick={item.id === "properties" ? handleToggle : undefined}
-        >
-          {item.id === "properties" ? (
-            <>
-              <Typography
-                variant="button"
-                aria-controls="properties-menu"
-                aria-haspopup="true"
-                aria-expanded={Boolean(anchorEl)}
+      {filteredPages.map((item) =>
+        item.section && useIn !== "footer" ? (
+          <DropDownMenu item={item} useIn={useIn} setIsOpen={setIsOpen} />
+        ) : (
+          <NavLink
+            to={item.path}
+            aria-label={item.name}
+            style={{ textDecoration: "none", padding: 1 }}
+            onClick={() => {
+              if (setIsOpen) setIsOpen(false);
+            }}
+          >
+            {({ isActive }) => (
+              <Box
                 sx={{
                   display: "flex",
+                  justifyContent: "start",
                   alignItems: "center",
-                  gap: 0.5,
-                  color:
-                    useIn === "footer"
-                      ? "#fff"
-                      : anchorEl
-                      ? "text.secondary"
-                      : "text.primary",
-                  fontWeight: 500,
-                  fontSize: 17,
-                  cursor: "pointer",
-                  textTransform: "capitalize",
-                  "&:hover": {
-                    color: "text.secondary",
-                  },
                 }}
               >
-                {item.name}
-                <ArrowDropDownIcon
-                  fontSize="small"
-                  sx={{
-                    transform: anchorEl ? "rotate(180deg)" : "rotate(0deg)",
-                    transition: "0.3s",
-                  }}
-                />
-              </Typography>
-
-              <Menu
-                id="properties-menu"
-                anchorEl={anchorEl}
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-              >
-                {item.section?.map((subItem) => (
-                  <MenuItem
-                    key={subItem.id}
-                    onClick={() => {
-                      handleClose();
-                      if (setIsOpen) setIsOpen(false); 
+                {isActive && useIn !== "footer" && (
+                  <Box
+                    className={Styles.circle}
+                    sx={{
+                      backgroundColor: "text.secondary",
+                      mx: miniLatop ? 0.5 : 0.7,
                     }}
-                    component={NavLink}
-                    to={subItem.path}
-                  >
-                    {subItem.name}
-                  </MenuItem>
-                ))}
-              </Menu>
-            </>
-          ) : (
-            <NavLink
-              to={item.path}
-              aria-label={item.name}
-              style={{ textDecoration: "none" }}
-              onClick={() => {
-                if (setIsOpen) setIsOpen(false); 
-              }}
-            >
-              {({ isActive }) => (
-                <Box
+                  ></Box>
+                )}
+                <Typography
+                  variant="button"
                   sx={{
-                    display: "flex",
-                    justifyContent: "start",
-                    alignItems: "center",
+                    color:
+                      useIn === "footer"
+                        ? "#fff"
+                        : isActive
+                        ? "text.secondary"
+                        : "text.primary",
+
+                    borderRadius: 1,
+                    mr: 2.5,
+                    // border: "2px solid red",
+                    pl: isMobile ? 0.5 : 0,
+                    mb:useIn === "footer" || useIn === "sidebar" ?0.7:0,
+                    fontWeight: 500,
+                    fontSize: miniLatop ? 14 : 17,
+                    cursor: "pointer",
+                    textTransform: "capitalize",
+                    "&:hover": {
+                      color: "text.secondary",
+                    },
                   }}
                 >
-                  {isActive &&
-                    (useIn === "footer" ? (
-                      ""
-                    ) : (
-                      <Box
-                        className={Styles.circle}
-                        sx={{
-                          backgroundColor: "text.secondary",
-                          mx: miniTab ? 0.5 : 1,
-                        }}
-                      ></Box>
-                    ))}
-                  <Typography
-                    variant="button"
-                    sx={{
-                      color:
-                        useIn === "footer"
-                          ? "#fff"
-                          : isActive
-                          ? "text.secondary"
-                          : "text.primary",
-                      fontWeight: 500,
-                      fontSize: 17,
-                      cursor: "pointer",
-                      textTransform: "capitalize",
-                      "&:hover": {
-                        color: "text.secondary",
-                      },
-                    }}
-                  >
-                    {item.name}
-                  </Typography>
-                </Box>
-              )}
-            </NavLink>
-          )}
-        </MenuItem>
-      ))}
+                  {smallTablet
+                    ? item.id === "about"
+                      ? item.name.slice(0, 5)
+                      : smallTablet
+                      ? item.id === "contact"
+                        ? item.name.slice(0, 7)
+                        : item.name
+                      : item.name
+                    : item.name}
+                </Typography>
+              </Box>
+            )}
+          </NavLink>
+        )
+      )}
     </Box>
   );
 };
