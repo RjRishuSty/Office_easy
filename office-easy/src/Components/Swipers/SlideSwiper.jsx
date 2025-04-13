@@ -48,7 +48,6 @@ const SlideSwiper = ({ sliderData, useIn }) => {
               style={{
 
                 width: isWhatWeDo ? "auto" : "100%",
-                border:'2px solid red',
                 height: "400px",
                 objectFit: isWhatWeDo ? "contain" : "cover",
                 objectPosition: "center",
