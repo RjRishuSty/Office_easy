@@ -46,8 +46,10 @@ const SlideSwiper = ({ sliderData, useIn }) => {
               src={item.img}
               alt="office"
               style={{
+
                 width: isWhatWeDo ? "auto" : "100%",
-                height: "50vh",
+                border:'2px solid red',
+                height: "400px",
                 objectFit: isWhatWeDo ? "contain" : "cover",
                 objectPosition: "center",
                 filter: "brightness(80%)",

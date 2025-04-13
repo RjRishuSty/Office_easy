@@ -25,7 +25,7 @@ function ElevationScroll(props) {
   });
 
   return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0, 
+    elevation: trigger ? 4 : 0,
   });
 }
 
@@ -77,7 +77,7 @@ const Header = (props) => {
                   <Button
                     startIcon={<LoginIcon />}
                     variant="contained"
-                    size={miniLatop?"small":'medium'}
+                    size={miniLatop ? "small" : "medium"}
                     sx={{
                       backgroundColor: "primary.light",
                       mr: 2,
@@ -89,7 +89,7 @@ const Header = (props) => {
                   <Button
                     endIcon={<HowToRegIcon />}
                     variant="contained"
-                    size={miniLatop?"small":'medium'}
+                    size={miniLatop ? "small" : "medium"}
                     sx={{ backgroundColor: "primary.dark", color: "#fff" }}
                   >
                     Register

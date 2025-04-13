@@ -21,14 +21,20 @@ export const footerData = [
         id: "phone",
         name: "Registered Helplines",
         content: [
-          { id: "1", item: "+91-9311476917" },
-          { id: "2", item: "+91-8595789536" },
+          { id: "phone", item: "+91-9311476917", path: "tel:+919311476917" },
+          { id: "phone", item: "+91-8595789536", path: "tel:+918595789536" },
         ],
       },
       {
         id: "email",
         name: "Email",
-        content: [{id:'1',item:"newoffice@officeeasy.in"}]
+        content: [
+          {
+            id: "email",
+            item: "newoffice@officeeasy.in",
+            path: "mailto:newoffice@officeeasy.in",
+          },
+        ],
       },
       {
         id: "location",
