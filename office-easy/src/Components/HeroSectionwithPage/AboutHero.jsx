@@ -20,7 +20,6 @@ const AboutHero = () => {
               src={heroImg}
               alt="Office Easy"
               style={{
-                border:'2px solid red',
                 width: "100%",
                 height: "550px",
                 objectFit: "cover",

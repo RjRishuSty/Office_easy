@@ -28,11 +28,17 @@ const MenuLists = ({ useIn, item, setIsOpen }) => {
     >
       {filteredPages.map((item) =>
         item.section && useIn !== "footer" ? (
-          <DropDownMenu item={item} useIn={useIn} setIsOpen={setIsOpen} />
+          <DropDownMenu
+            key={item.id}
+            item={item}
+            useIn={useIn}
+            setIsOpen={setIsOpen}
+          />
         ) : item.id === "properties" ? (
           ""
         ) : (
           <NavLink
+          key={item.id}
             to={item.path}
             aria-label={item.name}
             style={{ textDecoration: "none", padding: 1 }}

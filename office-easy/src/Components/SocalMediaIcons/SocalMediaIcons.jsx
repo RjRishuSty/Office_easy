@@ -1,63 +1,30 @@
-// import ReactSt from 'react'
-import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import XIcon from "@mui/icons-material/X";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import React from "react";
+import { socialMediaIcons } from "../../socialMediaIcons";
+import { Link } from "react-router-dom";
 
 const SocalMediaIcons = ({ useIn }) => {
   return (
     <>
-      <FacebookOutlinedIcon
-        sx={{
-          mr: 5,
-          cursor: "pointer",
-          color: "#ffc307",
-          "&:hover":{
-            color:'#2b5aac',
-          }
-        }}
-      />
-      <InstagramIcon
-        sx={{
-          mr: 5,
-          cursor: "pointer",
-          color: "#ffc307",
-          "&:hover":{
-            color:'#2b5aac',
-          }
-        }}
-      />
-      <LinkedInIcon
-        sx={{
-          mr: 5,
-          cursor: "pointer",
-          color: "#ffc307",
-          "&:hover":{
-            color:'#2b5aac',
-          }
-        }}
-      />
-      <XIcon
-        sx={{
-          mr: 5,
-          cursor: "pointer",
-          color: "#ffc307",
-          "&:hover":{
-            color:'#2b5aac',
-          }
-        }}
-      />
-      <YouTubeIcon
-        sx={{
-          // mr: 5,
-          cursor: "pointer",
-          color: "#ffc307",
-          "&:hover":{
-            color:'#2b5aac',
-          }
-        }}
-      />
+      {socialMediaIcons.map((item) => {
+        if (item.id === "phone") return null;
+
+        return (
+          <Link key={item.id} to={item.url}>
+            {React.cloneElement(item.icon, {
+              sx: {
+                mr: useIn === "xsHeader" ? 0 : 5,
+                cursor: "pointer",
+                color: "#ffc307",
+                padding: useIn === "header" || useIn === "xsHeader" ? 0.3 : 0,
+                pb: useIn === "xsHeader" ? 0.2 : 0,
+                "&:hover": {
+                  color: "#fff",
+                },
+              },
+            })}
+          </Link>
+        );
+      })}
     </>
   );
 };

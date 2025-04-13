@@ -1,4 +1,4 @@
-import { Box, Grid, Stack, Typography, useMediaQuery } from "@mui/material";
+import { Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import { footerData } from "../../footerData";
 import { Link } from "react-router-dom";
@@ -15,16 +15,24 @@ const HeaderInfo = () => {
   return (
     <Stack
       sx={{
-        border: "5px solid blue",
+        // border:'1px solid red',
         backgroundColor: "primary.light",
         py: 0.7,
-        zIndex:999
+        zIndex: 999,
       }}
     >
       {xSmall ? (
         <XsmallHeaderInfo />
       ) : (
-        <Grid container spacing={2}>
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           {companyInfo?.types
             .filter((item) => item.id !== "location")
             .map((item) => (
@@ -32,17 +40,17 @@ const HeaderInfo = () => {
                 size={{ xs: 6, sm: 6, md: 4 }}
                 key={item.id}
                 sx={{
-                  border: "2px solid white",
+                  // border: "2px solid white",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                 }}
               >
                 {Array.isArray(item.content)
-                  ? item.content.map((content) => (
+                  ? item.content.map((content, index) => (
                       <Link
                         to={content.path}
-                        key={content.id}
+                        key={`${content.id}-${index}`}
                         style={{
                           textDecoration: "none",
                           display: "flex",
@@ -76,7 +84,7 @@ const HeaderInfo = () => {
             <Grid
               size={{ sm: 12, xs: 12, md: 4 }}
               sx={{
-                border: "2px solid white",
+                // border: "2px solid white",
                 width: "100%",
                 display: "flex",
                 justifyContent: "center",

@@ -14,6 +14,7 @@ import HowToRegIcon from "@mui/icons-material/HowToReg";
 import LoginIcon from "@mui/icons-material/Login";
 import SideBar from "../SideBar/SideBar";
 import { useState, useCallback } from "react";
+import HeaderInfo from "../HeaderInfo/HeaderInfo";
 
 // Elevation effect on scroll
 function ElevationScroll(props) {
@@ -26,6 +27,10 @@ function ElevationScroll(props) {
 
   return React.cloneElement(children, {
     elevation: trigger ? 4 : 0,
+    sx: {
+      ...children.props.sx,
+      top: trigger ? 0 : 35,
+    },
   });
 }
 
@@ -46,13 +51,15 @@ const Header = (props) => {
   return (
     <Box component="nav" sx={{ flexGrow: 1 }}>
       <CssBaseline />
+      <HeaderInfo />
       <ElevationScroll {...props}>
         <AppBar
           position="fixed"
           sx={{
             py: 0.7,
-            transition: "box-shadow 0.3s ease-in-out",
             backgroundColor: "primary.main",
+            zIndex: 1200,
+            mt:isMobile?-0.4:0
           }}
         >
           <Toolbar
