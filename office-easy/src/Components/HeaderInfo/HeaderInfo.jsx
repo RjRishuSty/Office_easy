@@ -15,7 +15,7 @@ const HeaderInfo = () => {
   return (
     <Stack
       sx={{
-        // border:'1px solid red',
+        width: "100%",
         backgroundColor: "primary.light",
         py: 0.7,
         zIndex: 999,
@@ -84,10 +84,9 @@ const HeaderInfo = () => {
             <Grid
               size={{ sm: 12, xs: 12, md: 4 }}
               sx={{
-                // border: "2px solid white",
                 width: "100%",
                 display: "flex",
-                justifyContent: "center",
+                justifyContent: "space-around",
                 alignItems: "center",
               }}
             >

@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Stack, Typography } from "@mui/material";
+import { Box, Container, Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import { footerData } from "../../footerData.js";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
@@ -6,6 +6,7 @@ import MenuLists from "../MenuList/MenuLists.jsx";
 import { pages } from "../../pages.js";
 
 const Footer = () => {
+  const isMobile = useMediaQuery("(max-width:900px)");
   return (
     <Stack
       component="footer"
@@ -22,33 +23,32 @@ const Footer = () => {
       }}
     >
       <Container maxWidth="false" sx={{ maxWidth: "90%" }}>
-        <Grid container rowSpacing={5} columnSpacing={{ md: 5, sm: 2, xs: 1 }}>
+        <Grid container rowSpacing={5} columnSpacing={{ md: 5, sm: 4, xs: 1 }}>
           {footerData.map((item) => (
             <Grid
               key={item.id}
               size={{ xs: 12, sm: 6, md: 6, lg: 3 }}
-              sx={{  p: 1 }}
+              sx={{ p: 1 }}
             >
               <Typography
                 component="span"
                 gutterBottom
                 sx={{
-                  width: "auto",
                   color: "text.secondary",
                   fontWeight: 600,
                   fontSize: "1rem",
-                  margin: "0px 0px 0px 20px",
                   textTransform: "uppercase",
                   textAlign: "center",
                   borderBottom: "2px solid gray",
+                 
                 }}
               >
                 {item.name}
               </Typography>
               <Box sx={{ mt: 2.5 }}>
                 {item.id === "address" ? (
-                  item.types.map((type,index) => (
-                    <Box key={index} sx={{ mb: 1.5, pl: 2 }}>
+                  item.types.map((type, index) => (
+                    <Box key={index} sx={{ mb: 1.5 }}>
                       <Typography
                         variant="subtitle2"
                         sx={{
@@ -60,7 +60,7 @@ const Footer = () => {
                         {type.name}
                       </Typography>
                       {Array.isArray(type.content) ? (
-                        type.content.map((item,index) => (
+                        type.content.map((item, index) => (
                           <Typography
                             key={index}
                             gutterBottom
@@ -111,9 +111,9 @@ const Footer = () => {
                 ) : item.id === "about" ? (
                   <Typography
                     sx={{
+                      width:isMobile?'100%':'90%',
                       color: "#fff",
                       textAlign: "start",
-                      pl: 3,
                       fontSize: "1rem",
                       opacity: 0.9,
                     }}

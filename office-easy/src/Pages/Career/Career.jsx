@@ -6,7 +6,7 @@ const Career = () => {
   const isMobile = useMediaQuery("(max-width:900px)");
   return (
     <Stack
-      sx={{ border: "2px solid red", backgroundColor: "primary.main", py: 10 }}
+      sx={{ backgroundColor: "primary.main", py: 10 }}
     >
       <Container
         sx={{

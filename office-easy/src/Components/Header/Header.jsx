@@ -59,7 +59,7 @@ const Header = (props) => {
             py: 0.7,
             backgroundColor: "primary.main",
             zIndex: 1200,
-            mt:isMobile?-0.4:0
+            mt: isMobile ? -0.4 : 0,
           }}
         >
           <Toolbar

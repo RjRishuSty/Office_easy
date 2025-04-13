@@ -6,8 +6,7 @@ import Styles from "./SideBar.module.css";
 import { Box } from "@mui/material";
 import SocalMediaIcons from "../SocalMediaIcons/SocalMediaIcons";
 
-const SideBar = ({setIsOpen}) => {
-   
+const SideBar = ({ setIsOpen }) => {
   return (
     <Box
       component="div"
@@ -20,10 +19,27 @@ const SideBar = ({setIsOpen}) => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          padding: "15px 20px",
         }}
       >
         <Logo />
-        <CloseButton setIsOpen={setIsOpen}/>
+        <CloseButton setIsOpen={setIsOpen} />
+      </Box>
+      <Box
+        component="div"
+        sx={{
+          width: "100%",
+          height: "auto",
+          py: 2,
+          mt: 3,
+          mb: 3,
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "center",
+          backgroundColor: "primary.light",
+        }}
+      >
+        <SocalMediaIcons useIn='sidebar'/>
       </Box>
       <Box
         sx={{
@@ -32,13 +48,11 @@ const SideBar = ({setIsOpen}) => {
           justifyContent: "space-around",
           alignItems: "center",
           m: "20px 0px",
+          padding: "15px 20px",
           backgroundColor: "background.main",
         }}
       >
         <MenuLists useIn="sidebar" setIsOpen={setIsOpen} />
-      </Box>
-      <Box component="div" sx={{pl:3, mt: 5 }}>
-        <SocalMediaIcons />
       </Box>
     </Box>
   );
